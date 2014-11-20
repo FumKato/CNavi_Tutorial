@@ -4,13 +4,13 @@ CNaviTutorialView = function(){
 	_this.prototype.show_alert = function(){
 		switch(Session.get('mode')){
 			case 'morning':
-				alert('Good Morning!');
+				$('#greet').html('Good Morning!');
 				break;
 			case 'night':
-				alert('Good Night!');
+				$('#greet').html('Good Night!');
 				break;
 			default:
-				alert('Hello World!');
+				$('#greet').html('Hello World!');
 				break;
 		}
 	};
@@ -42,6 +42,18 @@ CNaviTutorialView = function(){
 				break;
 			default:
 				$('#hello').html('Default Mode');
+				break;
+		}
+	};
+	
+	_this.prototype.render_sentence = function(){
+		switch(Session.get('mode')){
+			case 'morning':
+			case 'night':
+				$('#sentence').html('Morning / Night Mode');
+				break;
+			default:
+				$('#sentence').html('Default Mode');
 				break;
 		}
 	};
