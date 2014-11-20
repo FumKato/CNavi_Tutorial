@@ -2,17 +2,9 @@ CNaviTutorialView = function(){
 	var _this = CNaviTutorialView;
 	
 	_this.prototype.show_alert = function(){
-		switch(Session.get('mode')){
-			case 'morning':
-				$('#greet').html('Good Morning!');
-				break;
-			case 'night':
-				$('#greet').html('Good Night!');
-				break;
-			default:
-				$('#greet').html('Hello World!');
-				break;
-		}
+		Meteor.call('get_message', Session.get('mode'), function(error, result){
+			$('#greet').html(result);
+		});
 	};
 	
 	_this.prototype.change_color = function(){
