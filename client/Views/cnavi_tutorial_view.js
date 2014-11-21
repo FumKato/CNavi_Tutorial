@@ -25,6 +25,9 @@ CNaviTutorialView = function(){
 	};
 	
 	_this.prototype.render_topic = function(){
+		var count = $('#count').html();
+		count++;
+		$('#count').html(count);
 		switch(Session.get('mode')){
 			case 'morning':
 				$('#hello').html('Morning Mode');
